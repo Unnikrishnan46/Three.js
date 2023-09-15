@@ -1,0 +1,10 @@
+#app{
+    touch-action: pan-up;
+}
+
+/* #app canvas{
+    display: block;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+} */
