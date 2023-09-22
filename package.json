@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@danielblagy/three-mmi": "^1.0.0",
     "cannon": "^0.6.2",
     "cannon-es": "^0.20.0",
     "dat.gui": "^0.7.9",
