@@ -1,11 +1,13 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'dat.gui';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 import { MeshSurfaceSampler } from "three/examples/jsm/math/MeshSurfaceSampler";
-import MouseMeshInteraction from '@danielblagy/three-mmi'
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
+import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass';
 import "./App.css"
 const App = () => {
   useLayoutEffect(() => {
@@ -13,10 +15,7 @@ const App = () => {
     const canvas = document.querySelector('canvas.webgl')
     const scene = new THREE.Scene()
     // scene.background = new THREE.Color(0x000ff);
-    const textureLoader = new THREE.TextureLoader();
     const envirnment = ("/env.hdr")
-    const rotationSpeed = 0.005;
-    const movementSpeed = 0.0002;
 
     const sizes = {
       width: window.innerWidth,
@@ -29,337 +28,180 @@ const App = () => {
     camera.position.z = 1
     scene.add(camera)
 
-    // let sampler
-    let pointsGeometry = new THREE.BufferGeometry()
-    const vertices = []
-    const tempPosition = new THREE.Vector3();
-    let pointPositions = [];
-    let points;
-    const pointer = new THREE.Vector2();
-    const intersectionThreshold = 0.1;
-
-    // const cursor = new THREE.Vector2();
-    const floatingAmplitude = 1.5; // Adjust this to control the float height
-    const floatingSpeed = 1;
-    let pointObjects = [];
-
-
-    // loader.load('/mesh3.glb', function (gltf) {
-    //   const model = gltf.scene;
-    //   gltf.scene.traverse((obj) => {
-    //     if (obj.isMesh) {
-    //       sampler = new MeshSurfaceSampler(obj).build()
-    //     }
-    //   })
-    //   model.scale.set(0.1, 0.1, 0.1);
-
-    //   for (let i = 0; i < 9; i++) {
-    //     sampler.sample(tempPosition)
-    //     vertices.push(tempPosition.x, tempPosition.y, tempPosition.z);
-    //     pointPositions.push(tempPosition.clone());
-    //   }
-
-    //   pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
-
-    //   const pointsMaterial = new THREE.PointsMaterial({
-    //     color: 0xfff0f0f,
-    //     size: 0.04,
-    //     blending: THREE.AdditiveBlending,
-    //     uniforms: {
-    //       mousePosition: { type: "v2", value: new THREE.Vector2() },
-    //     },
-    //     transparent: true,
-    //     opacity: 0.4,
-    //   })
-
-    //   points = new THREE.Points(pointsGeometry, pointsMaterial);
-    //   points.name = 'myPoints';
-    //   points.position.set(0, -1, -1);
-    //   points.scale.set(0.01, 0.01, 0.01);
-    //   points.geometry.boundingBox = null
-
-    //   pointObjects.push(pointsGeometry);
-    //   // scene.add(points)
-
-    //   renderer.render(scene, camera)
-    //   console.log("model Loaded");
-
-    // }, undefined, function (error) {
-    //   console.error(error);
-    // });
-
-
-
-    function getPointPositions() {
-      const positions = [];
-
-      for (let i = 0; i < pointsGeometry.attributes.position.count; i++) {
-        const vertex = new THREE.Vector3();
-        vertex.fromBufferAttribute(pointsGeometry.attributes.position, i);
-        positions.push({ x: vertex.x, y: vertex.y });
-      }
-      return positions;
-    }
 
 
 
 
-    // const bigSphereGeometry = new THREE.SphereGeometry(0.5, 64, 64);
-    // const sphereGeometry = new THREE.SphereGeometry(0.005, 16, 16);
 
-    // const numParticles = bigSphereGeometry.attributes.position.count;
+    // const sphereGeometry = new THREE.SphereGeometry(0.004, 16, 16);
     // const particles = [];
     // const originalPositions = [];
     // const originalMaterials = [];
-    // const highlightMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 }); // Change the color to your desired highlight color
+    // const highlightMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
 
 
-    // for (let i = 0; i < numParticles; i++) {
-    //   const x = bigSphereGeometry.attributes.position.getX(i);
-    //   const y = bigSphereGeometry.attributes.position.getY(i);
-    //   const z = bigSphereGeometry.attributes.position.getZ(i);
-
-    //   const particle = new THREE.Mesh(sphereGeometry, new THREE.MeshStandardMaterial);
-
-    //   particle.position.set(x, y, z);
-    //   particles.push(particle);
-    //   originalPositions.push(new THREE.Vector3(x, y, z));
-    //   originalMaterials.push(particle.material.clone());
-    // }
-    // scene.add(...particles);
-
-    // const interactionRadius = 0.1;
-    // const particleSpeed = 0.09; // Adjust this value to control the particle speed
-    // const cursor = new THREE.Vector3();
-    // const originalPositionss = particles.map(particle => particle.position.clone());
-
-    // const rayDirection = new THREE.Vector3();
-
-    // function onMouseMove(event) {
-    //   const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-    //   const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-    //   cursor.set(mouseX, mouseY, 0.5);
-    //   cursor.unproject(camera);
-    //   particles.forEach((particle, index) => {
-    //     rayDirection.copy(cursor).sub(camera.position).normalize();
-    //     const ray = new THREE.Ray(camera.position, rayDirection);
-    //     if (ray.distanceToPoint(particle.position) < interactionRadius) {
-    //       particle.position.add(cursor.clone().multiplyScalar(particleSpeed*0.05));
-    //       particle.material = highlightMaterial;
-    //     } else {
-    //       particle.position.copy(originalPositionss[index]);
-    //       particle.material = originalMaterials[index];
+    // let sampler;
+    // let model;
+    // loader.load('/earth.glb', (gltf) => {
+    //   model = gltf.scene;
+    //   model.scale.set(0.7, 0.7, 0.7)
+    //   // model.position.set(0, -0.7, -1);
+    //   model.position.set(0, -0.1, -1);
+    //   gltf.scene.traverse((obj) => {
+    //     if (obj.isMesh) {
+    //       sampler = new MeshSurfaceSampler(obj).build();
+    //       const numParticles = 3000;
+    //       for (let i = 0; i < numParticles; i++) {
+    //         const sample = new THREE.Vector3();
+    //         sampler.sample(sample);
+    //         const particle = new THREE.Mesh(sphereGeometry, new THREE.MeshStandardMaterial());
+    //         particle.position.copy(sample);
+    //         particle.position.copy(obj.localToWorld(particle.position));
+    //         particle.rotation.copy(obj.rotation);
+    //         particles.push(particle);
+    //         originalPositions.push(sample.clone());
+    //         originalMaterials.push(particle.material.clone());
+    //         scene.add(particle)
+    //       }
     //     }
     //   });
-    // }
-
-
-    // document.addEventListener('mousemove', onMouseMove);
-
-
-
-
-
-
-    const sphereGeometry = new THREE.SphereGeometry(0.003, 16, 16);
-    const particles = [];
-    const originalPositions = [];
-    const originalMaterials = [];
-    const highlightMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-    const dummy = new THREE.Object3D();
-
-    let sampler;
-
-
-    const geometry = new THREE.IcosahedronGeometry(0.1);
-    const material = new THREE.MeshStandardMaterial({ color: 0xfff });
-
-
-    loader.load('/mesh3.glb', (gltf) => {
-      const model = gltf.scene;
-      model.scale.set(0.8, 0.8, 0.8)
-      model.position.set(0, -0.7, -1);
-      gltf.scene.traverse((obj) => {
-        if (obj.isMesh) {
-          sampler = new MeshSurfaceSampler(obj).build();
-          const numParticles = 3000;
-          for (let i = 0; i < numParticles; i++) {
-            const sample = new THREE.Vector3();
-            sampler.sample(sample);
-            const particle = new THREE.Mesh(sphereGeometry, new THREE.MeshStandardMaterial());
-            const mesh = new THREE.InstancedMesh(geometry, material, 10000);
-            particle.position.copy(sample);
-            dummy.position.copy(sample);
-            particle.position.copy(obj.localToWorld(particle.position));
-            mesh.position.copy(obj.localToWorld(mesh.position));
-            particles.push(particle);
-            originalPositions.push(sample.clone());
-            originalMaterials.push(particle.material.clone());
-            dummy.updateMatrix();
-            mesh.setMatrixAt(i, dummy.matrix);
-            // scene.add(mesh)
-          }
-        }
-      });
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // const interactionRadius = 0.1;
-    // const particleSpeed = 0.09;
-    // const cursor = new THREE.Vector3();
-    // const originalPositionss = particles.map((particle) => particle.position.clone());
-    // const rayDirection = new THREE.Vector3();
-
-    // function onMouseMove(event) {
-    //   const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-    //   const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-    //   cursor.set(mouseX, mouseY, 0.5);
-    //   cursor.unproject(camera);
-    //   particles.forEach((particle, index) => {
-    //     rayDirection.copy(cursor).sub(camera.position).normalize();
-    //     const ray = new THREE.Ray(camera.position, rayDirection);
-    //     if (ray.distanceToPoint(particle.position) < interactionRadius) {
-    //       particle.position.add(cursor.clone().multiplyScalar(particleSpeed * 0.05));
-    //       particle.material = highlightMaterial;
-    //     } else {
-    //       particle.position.copy(originalPositions[index]);
-    //       particle.material = originalMaterials[index];
-    //     }
-    //   });
-    // }
-
-    // document.addEventListener('mousemove', onMouseMove);
-
-
-
-
-    // Function to update cursor position
-    // function updateCursor(event) {
-    //   cursor.x = (event.clientX / window.innerWidth) * 2 - 1;
-    //   cursor.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    // }
-
-    // document.addEventListener('mousemove', updateCursor);
-    // document.addEventListener('touchmove', (event) => {
-    //   updateCursor(event.touches[0]);
     // });
 
 
 
 
-    const mmi = new MouseMeshInteraction(scene, camera);
-    mmi.addHandler('sasi', 'mouseenter', function (mesh) {
-      console.log("sasi has been clicked");
-      console.log(points);
-    })
 
 
 
 
-    function createParticleSystem(model) {
-      const particles = new THREE.Group();
-      const numParticles = 50;
 
-      for (let i = 0; i < numParticles; i++) {
-        const instance = model.clone();
+    const particles = [];
+    const particleGeometry = new THREE.BufferGeometry();
+    const pointMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.002 });
 
-        const scale = Math.random() * 0.1 + 0.01;
-        instance.scale.set(scale, scale, scale);
+    let model;
 
-        const rotationX = Math.random() * Math.PI * 2;
-        const rotationY = Math.random() * Math.PI * 2;
-        const rotationZ = Math.random() * Math.PI * 2;
-        instance.rotation.set(rotationX, rotationY, rotationZ);
+    loader.load('/earth.glb', (gltf) => {
+      model = gltf.scene;
+      model.scale.set(0.7, 0.7, 0.7);
+      model.position.set(0, -0.1, -1);
 
-        const position = new THREE.Vector3(
-          Math.random() * 15 - 7.5,
-          Math.random() * 10 - 5,
-          -3
-        );
-        instance.position.copy(position);
+      gltf.scene.traverse((obj) => {
+        if (obj.isMesh) {
+          const geometry = obj.geometry.clone();
+          const positions = geometry.attributes.position.array;
 
-        particles.add(instance);
+          for (let i = 0; i < positions.length; i += 3) {
+            const x = positions[i];
+            const y = positions[i + 1];
+            const z = positions[i + 2];
+
+            const particle = new THREE.Vector3(x, y, z);
+            particles.push(particle);
+
+            if (particles.length >= 50000) {
+              break;
+            }
+          }
+        }
+      });
+
+      const particlePositions = new Float32Array(particles.length * 3);
+      for (let i = 0; i < particles.length; i++) {
+        particlePositions[i * 3] = particles[i].x;
+        particlePositions[i * 3 + 1] = particles[i].y;
+        particlePositions[i * 3 + 2] = particles[i].z;
       }
 
-      return particles;
+      particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+
+      const particleSystem = new THREE.Points(particleGeometry, pointMaterial);
+      particleSystem.scale.set(0.4, 0.4, 0.4);
+      scene.add(particleSystem);
+    });
+
+
+
+    const numInstances = 500;
+    const geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
+    const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    const instancedMesh = new THREE.InstancedMesh(geometry, material, numInstances);
+    
+    // Set individual positions, rotations, and scales for each instance
+    for (let i = 0; i < numInstances; i++) {
+      const matrix = new THREE.Matrix4();
+    
+      // Randomly position each cube within a certain range
+      const x = (Math.random() - 0.5) * 10;
+      const y = (Math.random() - 0.5) * 10;
+      const z = (Math.random() - 0.5) * 10;
+    
+      // Set the position of the cube
+      matrix.setPosition(new THREE.Vector3(x, y, z));
+    
+      instancedMesh.setMatrixAt(i, matrix);
+    }
+    
+    scene.add(instancedMesh);
+    
+
+
+
+
+    const galaxyGroup = new THREE.Group();
+    // scene.add(galaxyGroup);
+    const particleCount = 300;
+    const Gparticles = new THREE.BufferGeometry();
+    const colors = [0x03A9F4, 0xFF9800, 0xFFEB3B];
+
+    const positions = [];
+    const colorsArray = [];
+
+
+    for (let i = 0; i < particleCount; i++) {
+      const x = Math.random() * 20 - 10;
+      const y = Math.random() * 20 - 10;
+      const z = Math.random() * 20 - 10;
+
+      const color = new THREE.Color(colors[Math.floor(Math.random() * colors.length)]);
+      positions.push(x, y, z);
+      colorsArray.push(color.r, color.g, color.b);
+    }
+
+    Gparticles.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    Gparticles.setAttribute('color', new THREE.Float32BufferAttribute(colorsArray, 3));
+
+    let sprite = new THREE.TextureLoader().load('https://static.vecteezy.com/system/resources/thumbnails/017/398/790/small/white-circle-free-png.png');
+    const particleMaterial = new THREE.PointsMaterial({
+      size: 0.15,
+      vertexColors: true,
+      opacity: 0.8,
+      transparent: true,
+      map: sprite
+    });
+
+    const particleSystem = new THREE.Points(Gparticles, particleMaterial);
+    galaxyGroup.add(particleSystem);
+
+
+
+    function updateParticles() {
+      const positionAttribute = Gparticles.getAttribute('position');
+      const positionsArray = positionAttribute.array;
+
+      for (let i = 0; i < particleCount; i++) {
+        const currentX = positionsArray[i * 3];
+        if (currentX > 10) {
+          positionsArray[i * 3] = -10;
+        } else {
+          positionsArray[i * 3] += 0.01;
+        }
+      }
+
+      positionAttribute.needsUpdate = true;
     }
 
 
-    loader.load('/cone-green.glb', function (gltf) {
-      const model = gltf.scene;
-      model.traverse((node) => {
-        if (node.isMesh) {
-          node.castShadow = true;
-          node.name = 'cone-green';
-        }
-      });
-      const particles = createParticleSystem(model);
-      scene.add(particles);
-    }, undefined, function (error) {
-      console.error(error);
-    });
-
-    loader.load('/cone-yellow.glb', function (gltf) {
-      const model = gltf.scene;
-      model.traverse((node) => {
-        if (node.isMesh) {
-          node.castShadow = true;
-          node.name = 'cone-yellow'; // Set a name for identification
-        }
-      });
-      const particles = createParticleSystem(model);
-      scene.add(particles);
-    }, undefined, function (error) {
-      console.error(error);
-    });
-
-    loader.load('/cone-violet1.glb', function (gltf) {
-      const model = gltf.scene;
-      model.traverse((node) => {
-        if (node.isMesh) {
-          node.castShadow = true;
-          node.name = 'cone-violet'; // Set a name for identification
-        }
-      });
-      const particles = createParticleSystem(model);
-      scene.add(particles);
-    }, undefined, function (error) {
-      console.error(error);
-    });
-
-
-
-
-
-
-
-    const blurPlaneGeometry = new THREE.PlaneGeometry(sizes.width, sizes.height);
-    const blurPlaneMaterial = new THREE.MeshStandardMaterial({
-      transparent: true,
-      opacity: 7,
-      color: new THREE.Color(0, 0, 0),
-      metalness: 0,
-      clearcoat: 1,
-      clearcoatRoughness: 0.1,
-      transmission: 1,
-    });
-    const blurPlaneMesh = new THREE.Mesh(blurPlaneGeometry, blurPlaneMaterial);
-    blurPlaneMesh.position.z = -2.5
-    scene.add(blurPlaneMesh)
 
 
     window.addEventListener('resize', () => {
@@ -378,7 +220,11 @@ const App = () => {
 
 
     const renderer = new THREE.WebGLRenderer({
-      canvas: canvas
+      canvas: canvas,
+      powerPreference: "high-performance",
+      antialias: false,
+      stencil: false,
+      depth: false
     })
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
@@ -387,6 +233,22 @@ const App = () => {
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.8;
+
+
+    const composer = new EffectComposer(renderer);
+    const rendererPass = new RenderPass(scene, camera);
+    composer.addPass(rendererPass)
+    const screenDimension = new THREE.Vector2(window.innerWidth, window.innerHeight);
+    const unrealBloomPass = new UnrealBloomPass()
+    unrealBloomPass.strength = 1.1;
+    unrealBloomPass.radius = 0.3;
+    unrealBloomPass.threshold = 0.0;
+    unrealBloomPass.resolution = screenDimension
+    composer.addPass(unrealBloomPass);
+    const filmPass = new FilmPass(0.035, false);
+    composer.addPass(filmPass)
+
+
 
 
     const rgbeLoader = new RGBELoader();
@@ -399,17 +261,11 @@ const App = () => {
     let mouseX = 0;
     let mouseY = 0;
 
-    // function onMouseMove(event) {
-    //   mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-    //   mouseY = (event.clientY / window.innerHeight) * 2 - 1;
-    // }
+    function onMouseMove(event) {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+    }
 
-
-    // window.addEventListener('mousemove', onMouseMove, false);
-    // window.addEventListener('click', RaycasterOnMouseDown, false);
-    // window.addEventListener('mousemove',()=>{
-    //   console.log(pointsGeometry.attributes);
-    // })
 
 
     function updateCameraPosition() {
@@ -426,7 +282,6 @@ const App = () => {
 
 
     const clock = new THREE.Clock()
-    let moveRight = true;
 
 
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -435,49 +290,11 @@ const App = () => {
     const tick = () => {
       const elapsedTime = clock.getElapsedTime();
       // updateCameraPosition();
-      if (points) {
-        const pointPositions = getPointPositions();
-      }
-
-      const time = performance.now() * 0.001;
 
 
-      // if (points) {
-      //   for (let i = 0; i < pointsGeometry.attributes.position.count; i++) {
-      //     const vertex = new THREE.Vector3();
-      //     vertex.fromBufferAttribute(pointsGeometry.attributes.position, i);
-      //     vertex.y = pointPositions[i].y + Math.sin(time * floatingSpeed + i) * floatingAmplitude;
-      //     pointsGeometry.attributes.position.setXYZ(i, vertex.x, vertex.y, vertex.z);
-      //   }
-      //   pointsGeometry.attributes.position.needsUpdate = true;
-      // }
-
-      scene.traverse((object) => {
-        if (object.isMesh && object.name.includes('cone')) {
-          object.rotation.x += rotationSpeed;
-          object.rotation.y += rotationSpeed;
-        }
-      });
-
-      scene.traverse((object) => {
-        if (object.isMesh && object.name.includes('cone')) {
-          if (moveRight) {
-            object.position.x += Math.sin(elapsedTime * movementSpeed) * 0.05;
-          } else {
-            object.position.x -= Math.sin(elapsedTime * movementSpeed) * 0.05;
-          }
-
-          if (object.position.x >= 2) {
-            moveRight = false;
-          } else if (object.position.x <= -2) {
-            moveRight = true;
-          }
-        }
-      });
-
+      // updateParticles();
       window.requestAnimationFrame(tick)
-      mmi.update();
-      renderer.render(scene, camera)
+      composer.render()
     }
     tick()
   }, [])
