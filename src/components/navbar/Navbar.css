@@ -1,0 +1,129 @@
+/* 
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Dancing Script', cursive;
+font-family: 'Jost', sans-serif;
+font-family: 'Marck Script', cursive;
+font-family: 'Playball', cursive;
+font-family: 'Poppins', sans-serif;
+ */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links-container {
+    display: flex;
+}
+
+.nav-links-container ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+}
+
+.nav-links-container ul li {
+    margin-right: 3rem;
+}
+
+.portfolio-container h1 {
+    font-family: 'Dancing Script', cursive;
+}
+
+
+
+
+#checkbox {
+    display: none;
+  }
+  
+  .toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: .5s;
+  }
+  
+  .bars {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(176, 92, 255);
+    border-radius: 4px;
+  }
+  
+  #bar2 {
+    transition-duration: .8s;
+  }
+  
+  #bar1,#bar3 {
+    width: 70%;
+  }
+  
+  #checkbox:checked + .toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+  }
+
+  .toggle{
+    display: none;
+  }
+
+
+  @media only screen and (min-width: 40em) {
+
+  }
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (max-width: 64em) {
+    .toggle{
+        display: flex;
+      }
+
+      .nav-link{
+        display: none;
+      }
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 80em) {
+
+}

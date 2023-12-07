@@ -1,12 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400;500;600;700&family=Do+Hyeon&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Marck+Script&family=Odibee+Sans&family=Playball&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* 
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Dancing Script', cursive;
+font-family: 'Do Hyeon', sans-serif;
+font-family: 'Jost', sans-serif;
+font-family: 'Marck Script', cursive;
+font-family: 'Odibee Sans', sans-serif;
+font-family: 'Playball', cursive;
+font-family: 'Poppins', sans-serif;
+ */
+
+ 
 *{
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
 }
 
+/* * {
+  outline: 1px solid red;
+} */
+
 html,body{
   margin: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+  height: 100vh;
+  width: 100vw; 
+  font-family: 'Poppins', sans-serif;
+  cursor: none;
+  /* background: #000; */
+  /* border: 5px solid red; */
+  /* overflow-x: hidden; */
 }
+
+
+

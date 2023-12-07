@@ -1,0 +1,195 @@
+#page5 {
+    height: 100vh;
+    width: 100%;
+    color: azure;
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page5-subcontainer {
+    width: 90%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    /* background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    border: 1px solid rgba(255, 255, 255, 0.05); */
+    display: flex;
+}
+
+.page5-left{
+    display: flex;
+    flex-direction: column;
+    padding: 8rem;
+    /* gap: 2rem; */
+    width: 50%;
+    
+}
+
+.services h4{
+    text-decoration: underline;
+    padding: 1rem;
+}
+
+.page5-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+.form-container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-container input{
+    width: 25rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid darkmagenta;
+    color: blueviolet;
+    border-radius: 7px;
+    background: #000000;
+}
+
+.form-container textarea{
+    width: 25rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid darkmagenta;
+    color: blueviolet;
+    border-radius: 7px;
+    background: #000000;
+}
+
+.form-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-button button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 2.5rem;
+    width: 25rem;
+    gap: 0.5rem;
+    background: #0057ff;
+    border: none;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.social-media{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github,.linkedin,.instagram{
+    background: #fff;
+    color: blueviolet;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    margin-right: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+    .page5-subcontainer{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #page5{
+        padding: 0%;
+    }
+    .page5-left{
+        padding: 2rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .page5-left{
+        padding: 0rem;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        width: 80%;
+    }
+
+    .form-container input{
+        width: 20rem;
+    }
+
+    .form-container textarea{
+        width: 20rem;
+    }
+
+    .page5-left-heading h2{
+        font-size: 14px;
+    }
+
+    .page5-left-heading{
+        margin-top: 2rem;
+        width: 20rem;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 900px) {
+    .page5-left{
+        padding: 0rem;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-container input{
+        width: 40rem;
+    }
+
+    .form-container textarea{
+        width: 40rem;
+    }
+
+    .page5-left-heading h2{
+        font-size: 34px;
+    }
+
+    .page5-left-heading{
+        margin-top: 2rem;
+        width: 30rem;
+        text-align: center;
+    }
+    .services{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .services h4{
+        font-size: 24px;
+    }
+
+    .services ul li{
+        font-size: 24px;
+    }
+}

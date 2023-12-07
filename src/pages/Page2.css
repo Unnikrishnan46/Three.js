@@ -1,0 +1,64 @@
+#page2{
+    height: 100vh;
+    width: 100%;
+    color: azure;
+    display: flex;
+    justify-content: space-evenly;
+    /* background: rgba(255, 192, 203, 0.673); */
+}
+
+.page2-left{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5rem;
+}
+
+.abt-h1-container{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.abt-h1{
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 2rem;
+}
+
+.short-description{
+    width: 45%;
+}
+
+.page2-right-btn{
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.page2-right-btn button{
+    background: none;
+    border: none;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 640px) {
+.page2-left{
+    padding: 0.5rem;
+}
+.abt-h1-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.short-description{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+}
+

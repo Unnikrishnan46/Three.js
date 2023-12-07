@@ -1,10 +1,53 @@
-#app{
-    touch-action: pan-up;
-}
+/* 
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Dancing Script', cursive;
+font-family: 'Jost', sans-serif;
+font-family: 'Marck Script', cursive;
+font-family: 'Playball', cursive;
+font-family: 'Poppins', sans-serif;
+ */
 
-/* #app canvas{
-    display: block;
+#app canvas{
+    width: 100vw !important;
     z-index: -1;
     position: fixed;
-    top: 0;
-} */
+}
+
+.cursor{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid white;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    z-index: -1;
+    transition: all 0.3s ease;
+    transition-property: background,transform,border;
+    transform-origin: 100%,100%;
+}
+
+.headGrow{
+    transform: scale(3);
+    background: white;
+}
+
+.mouse-btn-grow{
+    transform: scale(3);
+    background: red;
+    border: none;
+}
+
+.mouse-btn-grow-blue{
+    transform: scale(3);
+    background: aqua;
+    border: none;
+}
+
+.hovered-link{
+    color: black;
+}
+
+
+
+

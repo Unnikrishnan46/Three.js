@@ -1,0 +1,51 @@
+.homeContent-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 3rem;
+    padding: 5rem;
+}
+
+.say-hey{
+    margin-top: 5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.say-hey h3{
+    color: aquamarine;
+    font-family: 'Playball', cursive;
+    font-size: 20px;
+}
+
+.my-self{
+    font-size: 30px;
+    font-family: 'Odibee Sans', sans-serif;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.my-self span{
+    font-family: 'Playball', cursive;
+    color: floralwhite;
+}
+
+.para-my-self{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 25rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.about-btn{
+    background: none;
+    border: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    width: 6rem;
+}
+
+.button-hovered{
+    font-weight: bold;
+}
+

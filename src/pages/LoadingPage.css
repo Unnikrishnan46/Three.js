@@ -1,0 +1,37 @@
+/* 
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Jost', sans-serif;
+font-family: 'Poppins', sans-serif;
+ */
+
+
+.loadingPage {
+    height: 100vh;
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+}
+
+.loader-container{
+    position: absolute;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    padding: 1.5rem;
+}
+
+
+.progress-container{
+    position: absolute;
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    top: 80%;
+    right: 5%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.progress{
+    opacity: 0;
+}
