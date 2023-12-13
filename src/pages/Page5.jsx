@@ -219,13 +219,13 @@ function Page5() {
             <button onClick={onSubmit}><i class="fa-regular fa-paper-plane"></i>  Submit</button>
           </div>
           <div className="social-media">
-            <div className="github">
+            <div onClick={()=>{window.open("https://github.com/Unnikrishnan46")}} className="github">
               <i className="fa-brands fa-github"></i>
             </div>
-            <div className="linkedin">
+            <div onClick={()=>{window.open("https://www.linkedin.com/in/unni-krishnan-3a162124b/")}} className="linkedin">
               <i className="fa-brands fa-linkedin-in"></i>
             </div>
-            <div className="instagram">
+            <div onClick={()=>{window.open("https://www.instagram.com/not_me734/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==")}} className="instagram">
               <i className="fa-brands fa-instagram"></i>
             </div>
           </div>

@@ -48,6 +48,10 @@ font-family: 'Poppins', sans-serif;
     color: black;
 }
 
+html,body{
+    overflow-x: hidden;
+}
+
 
 
 

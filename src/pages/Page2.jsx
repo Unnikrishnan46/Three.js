@@ -103,6 +103,11 @@ const Page2 = () => {
     return () => ctx.revert();
   }, []);
 
+  const toContact = () => {
+    const contactPage = document.getElementById("page5");
+    gsap.to(window, { scrollTo: contactPage.offsetHeight * 8, scrollBehavior: "smooth" });
+  };
+
   return (
     <div id='page2' className='section'>
       <div className="page2-left">
@@ -128,7 +133,7 @@ const Page2 = () => {
         </div>
         <div className="page2-right-btn">
           <button className='cv-btn btn'>DOWNLOAD CV <span className="material-icons-sharp">trending_flat</span></button>
-          <button className='btn'>OK, LET'S TALK <span className="material-icons-sharp">north_east</span></button>
+          <button onClick={toContact} className='btn'>OK, LET'S TALK <span className="material-icons-sharp">north_east</span></button>
         </div>
       </div>
     </div>

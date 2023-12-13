@@ -36,6 +36,11 @@ function ProjectPage() {
           stagger: 0.05
         });
       });
+      tl.fromTo(".showSiteBtn",{
+        opacity:0,
+      },{
+        opacity:1
+      })
 
       return () => ctx.revert();
     }
@@ -53,6 +58,7 @@ function ProjectPage() {
            <h1>{project ? project.name : ""}</h1>
         </div>
         <p>{project ? project.fullDescription : ""}</p>
+        {project?.siteURL &&<button className='showSiteBtn' onClick={()=>{window.open(project.siteURL,'_blank')}} style={{background:"pink", padding:"1rem",color:"black",fontWeight:"bold",display:"flex",justifyContent:"center",alignItems:"center",cursor:"pointer"}}>Show Site</button> }
       </div>
     </div>
   );

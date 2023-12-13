@@ -1,0 +1,12 @@
+.project-img-container img{
+    height: 10rem;
+    width: 10rem;
+}
+
+.ProjectSlider-main{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    overflow-x: scroll;
+    gap: 1rem;
+}

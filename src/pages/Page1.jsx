@@ -69,6 +69,7 @@ const Page1 = () => {
 
 
 
+    
 
 
 
@@ -86,6 +87,8 @@ const Page1 = () => {
     });
     return () => ctx.revert();
   }, []);
+
+  
   return (
     <div id='page1' className='section'>
       <HomeContent />

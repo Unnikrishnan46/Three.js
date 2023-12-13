@@ -1,11 +1,13 @@
-const projectData = [{
+const projectData = [
+  {
     name: "F4Fashion E-commerce Shoe Store",
-    shortDescription: "Fully functional and Responsive E-commerce Shoe Store. Made with Express,HBS,CSS etc.",
-    fullDescription: `Welcome to Bonic, your ultimate destination for 
+    shortDescription:
+      "Fully functional and Responsive E-commerce Shoe Store. Made with Express,HBS,CSS etc.",
+    fullDescription: `Welcome to F4Fashion, your ultimate destination for 
     stylish footwear! Our online shoe store is not just another website;
      it's a fully functional and responsive e-commerce platform designed
       to enhance your shopping experience. Crafted with cutting-edge 
-      technologies including Express, HBS, and CSS, our website is not 
+      technologies including Exprses, HBS, and CSS, our website is not 
       just visually appealing but also highly efficient. No matter what 
       device you use, our website provides a seamless experience. Our 
       fully responsive design adapts to different screen sizes, ensuring 
@@ -17,180 +19,117 @@ const projectData = [{
         payment gateways, you can shop with confidence, knowing that your 
         personal and financial information is protected.
     `,
-    imageURL:"/shoe-website.jpg",
-    id:"1",
-    category:"website",
-    largeImageURL:"/project2.png"
-},
-{
-    name: "BONIC E-commerce Shoe Store",
-    shortDescription: "Fully functional and Responsive E-commerce Shoe Store. Made with Express,HBS,CSS etc.",
-    fullDescription: `Welcome to Bonic, your ultimate destination for 
-    stylish footwear! Our online shoe store is not just another website;
-     it's a fully functional and responsive e-commerce platform designed
-      to enhance your shopping experience. Crafted with cutting-edge 
-      technologies including Express, HBS, and CSS, our website is not 
-      just visually appealing but also highly efficient. No matter what 
-      device you use, our website provides a seamless experience. Our 
-      fully responsive design adapts to different screen sizes, ensuring 
-      that you can explore and make purchases comfortably from your
-       desktop, laptop, tablet, or smartphone.
-       Your security is our priority. We offer multiple payment options to suit 
-       your convenience. Choose between Cash on Delivery, PayPal, 
-       or Razorpay to complete your purchase securely. With our secure
-        payment gateways, you can shop with confidence, knowing that your 
-        personal and financial information is protected.
+    imageURL:
+      "https://firebasestorage.googleapis.com/v0/b/fir-48ad5.appspot.com/o/project1.jpg?alt=media&token=66b76976-c64a-46f3-a377-921e9541629e",
+    id: "1",
+    category: "website",
+    largeImageURL: "/project1.png",
+  },
+  {
+    name: "BONIC E-commerce Store",
+    shortDescription:
+      "Responsive AI Image Generator. Made with React,Express,OpenAi etc.",
+    fullDescription: `Welcome to BONIC E-commerce Store, where innovation meets seamless shopping! Our fully responsive website caters to your needs whether you're browsing on a desktop, tablet, or smartphone. Enjoy a visually appealing and intuitive interface that makes your shopping journey a breeze.
+    We understand the importance of flexibility when it comes to payments. That's why we offer a variety of payment options, including the convenience of Cash on Delivery and the security of Stripe integration. Shop with peace of mind, knowing that your transactions are safe and hassle-free.
+    Our user-friendly design extends to the shopping process, allowing you to effortlessly add items to your cart and wishlist. Whether you're building a wish list for future purchases or ready to check out, BONIC makes it simple and enjoyable.
+    For our administrators, we provide a powerful admin panel that puts you in control. Manage your product catalog with ease—add new products, edit existing ones, hide items temporarily, or remove them from the inventory. Our system ensures that you have the tools needed to keep your online store dynamic and up-to-date.
+    Join the BONIC E-commerce community today and experience the future of online shopping.
     `,
-    imageURL:"/bonic.jpg",
-    id:"2",
-    category:"website",
-    largeImageURL:"/project2.png"
-},
-{
+    imageURL: "https://firebasestorage.googleapis.com/v0/b/fir-48ad5.appspot.com/o/project2.png?alt=media&token=8cf5e83a-d47a-4445-a661-3a0ab70a6cb1",
+    id: "2",
+    category: "website",
+    largeImageURL: "/project2.png",
+    siteURL:"https://bonic-eight.vercel.app/"
+  },
+  {
     name: "Dall-E Clone.AI Image Generator",
-    shortDescription: "Fully functional and Responsive E-commerce Shoe Store. Made with Express,HBS,CSS etc.",
-    fullDescription: `Welcome to Bonic, your ultimate destination for 
-    stylish footwear! Our online shoe store is not just another website;
-     it's a fully functional and responsive e-commerce platform designed
-      to enhance your shopping experience. Crafted with cutting-edge 
-      technologies including Express, HBS, and CSS, our website is not 
-      just visually appealing but also highly efficient. No matter what 
-      device you use, our website provides a seamless experience. Our 
-      fully responsive design adapts to different screen sizes, ensuring 
-      that you can explore and make purchases comfortably from your
-       desktop, laptop, tablet, or smartphone.
-       Your security is our priority. We offer multiple payment options to suit 
-       your convenience. Choose between Cash on Delivery, PayPal, 
-       or Razorpay to complete your purchase securely. With our secure
-        payment gateways, you can shop with confidence, knowing that your 
-        personal and financial information is protected.
+    shortDescription:
+      "Fully functional and Responsive E-commerce Shoe Store. Made with Express,HBS,CSS etc.",
+    fullDescription: `DALL-E Clone.AI Image Generator is an innovative web application that brings the power of artificial intelligence to the realm of image creation. Built with cutting-edge technologies such as React, Tailwind CSS, and Express, this project serves as a homage to the original DALL-E while offering a unique and user-friendly experience.
+    The landing page of the DALL-E Clone.AI Image Generator is a visual feast, showcasing a curated collection of images generated by users worldwide. The diversity and creativity of these images illustrate the limitless possibilities that this AI-driven image generator can offer.
+    At the heart of the application is the image generation feature, allowing users to unleash their creativity by providing prompts to the AI model. Whether it's fantastical landscapes, surreal creatures, or abstract concepts, users can witness their ideas come to life in the form of stunning visual creations. The user interface is designed to be intuitive, ensuring a seamless and enjoyable experience for both seasoned artists and newcomers.
+    The collaborative aspect of the platform allows users to share their generated images with the community, fostering a vibrant ecosystem of creativity.
     `,
-    imageURL:"/mock.jpg",
-    id:"3",
-    category:"website",
-    largeImageURL:"/project2.png"
-},
-{
-    name: "Dall-E Clone.AI Image Generator",
-    shortDescription: "Fully functional and Responsive E-commerce Shoe Store. Made with Express,HBS,CSS etc.",
-    fullDescription: `Welcome to Bonic, your ultimate destination for 
-    stylish footwear! Our online shoe store is not just another website;
-     it's a fully functional and responsive e-commerce platform designed
-      to enhance your shopping experience. Crafted with cutting-edge 
-      technologies including Express, HBS, and CSS, our website is not 
-      just visually appealing but also highly efficient. No matter what 
-      device you use, our website provides a seamless experience. Our 
-      fully responsive design adapts to different screen sizes, ensuring 
-      that you can explore and make purchases comfortably from your
-       desktop, laptop, tablet, or smartphone.
-       Your security is our priority. We offer multiple payment options to suit 
-       your convenience. Choose between Cash on Delivery, PayPal, 
-       or Razorpay to complete your purchase securely. With our secure
-        payment gateways, you can shop with confidence, knowing that your 
-        personal and financial information is protected.
+    imageURL: "https://firebasestorage.googleapis.com/v0/b/fir-48ad5.appspot.com/o/project3.png?alt=media&token=3f15957e-8c72-43e6-b391-010ffd875630",
+    id: "3",
+    category: "website",
+    largeImageURL: "/project3.png",
+    siteURL:"https://dall-e-client-two.vercel.app/"
+  },
+  {
+    name: "Video Sharing Application",
+    shortDescription:
+      "Video Sharing Application - Made with React Native,Express,Firebase etc",
+    fullDescription: `Introducing our latest creation - a React Native application designed
+    to revolutionize the video-sharing experience. This dynamic platform allows users to effortlessly
+    sign up, log in securely, and share their favorite moments through captivating videos. Notably,
+    only meticulously approved videos are showcased to ensure a premium content experience. Developed
+    for our valued client, this app merges seamless functionality with a sleek interface, providing users
+    with a curated space to explore, engage, and express themselves through the art of video. Welcome to a
+    new era of mobile video sharing – welcome to our React Native VideoShare App.
     `,
-    imageURL:"/mock.jpg",
-    id:"4",
-    category:"website",
-    largeImageURL:"/project2.png"
-},
-{
-    name: "Dall-E Clone.AI Image Generator",
-    shortDescription: "Fully functional and Responsive E-commerce Shoe Store. Made with Express,HBS,CSS etc.",
-    fullDescription: `Welcome to Bonic, your ultimate destination for 
-    stylish footwear! Our online shoe store is not just another website;
-     it's a fully functional and responsive e-commerce platform designed
-      to enhance your shopping experience. Crafted with cutting-edge 
-      technologies including Express, HBS, and CSS, our website is not 
-      just visually appealing but also highly efficient. No matter what 
-      device you use, our website provides a seamless experience. Our 
-      fully responsive design adapts to different screen sizes, ensuring 
-      that you can explore and make purchases comfortably from your
-       desktop, laptop, tablet, or smartphone.
-       Your security is our priority. We offer multiple payment options to suit 
-       your convenience. Choose between Cash on Delivery, PayPal, 
-       or Razorpay to complete your purchase securely. With our secure
-        payment gateways, you can shop with confidence, knowing that your 
-        personal and financial information is protected.
+    imageURL: "https://firebasestorage.googleapis.com/v0/b/fir-48ad5.appspot.com/o/project4.png?alt=media&token=1ab145a9-9b52-4066-9c67-e9539e3c3390",
+    id: "4",
+    category: "website",
+    largeImageURL: "/project4.png",
+  },
+  {
+    name: "3D Portfolio Website",
+    shortDescription:
+      "Responsive 3D Portfolio Website. Made with React,Three,Express etc.",
+    fullDescription: `Welcome to my 3D portfolio, a fusion of React.js and 
+    Three.js mastery. Immerse yourself in a dynamic web experience featuring
+     four intricately designed 3D objects. Navigating through the space is a
+      seamless journey, showcasing the power of React.js for UI and Three.js
+       for lifelike rendering. The responsive design ensures a captivating
+        experience across devices. Explore the world where creativity meets
+         technology, pushing the boundaries of web development.
     `,
-    imageURL:"/mock.jpg",
-    id:"5",
-    category:"website",
-    largeImageURL:"/project2.png"
-},
-{
-    name:"tickTok",
-    fullDescription:`We offer multiple payment options to suit 
-    your convenience. Choose between Cash on Delivery, PayPal, 
-    or Razorpay to complete your purchase securely. With our secure
-     payment gateways, you can shop with confidence, knowing that your 
-     personal and financial information is protected`,
-     shortDescription:"jhjh jhjhgjjh fhgfh jhgjjfh hgjhghf",
-     imageURL:"/mobile.jpg",
-     id:"6451",
-     category:"mobileApp",
-     largeImageURL:"/project2.png"
-},
-{
-    name:"E-commerece",
-    fullDescription:`We offer multiple payment options to suit 
-    your convenience. Choose between Cash on Delivery, PayPal, 
-    or Razorpay to complete your purchase securely. With our secure
-     payment gateways, you can shop with confidence, knowing that your 
-     personal and financial information is protected`,
-     shortDescription:"jhjh jhjhgjjh fhgfh jhgjjfh hgjhghf",
-     imageURL:"/mobile2.jpg",
-     id:"654",
-     category:"mobileApp",
-     largeImageURL:"/project2.png"
-},
-{
-    name:"PlayStore",
-    fullDescription:`We offer multiple payment options to suit 
-    your convenience. Choose between Cash on Delivery, PayPal, 
-    or Razorpay to complete your purchase securely. With our secure
-     payment gateways, you can shop with confidence, knowing that your 
-     personal and financial information is protected`,
-     shortDescription:"jhjh jhjhgjjh fhgfh jhgjjfh hgjhghf",
-     imageURL:"/mobile3.jpg",
-     id:"567687",
-     category:"mobileApp",
-     largeImageURL:"/project2.png"
-},
-{
-    name:"PlayStore",
-    fullDescription:`We offer multiple payment options to suit 
-    your convenience. Choose between Cash on Delivery, PayPal, 
-    or Razorpay to complete your purchase securely. With our secure
-     payment gateways, you can shop with confidence, knowing that your 
-     personal and financial information is protected`,
-     shortDescription:"jhjh jhjhgjjh fhgfh jhgjjfh hgjhghf",
-     imageURL:"/mobile3.jpg",
-     id:"7987",
-     category:"desktopApp",
-     largeImageURL:"/project2.png"
-},
-{
-    name:"PlayStore",
-    fullDescription:`We offer multiple payment options to suit 
-    your convenience. Choose between Cash on Delivery, PayPal, 
-    or Razorpay to complete your purchase securely. With our secure
-     payment gateways, you can shop with confidence, knowing that your 
-     personal and financial information is protected`,
-     shortDescription:"jhjh jhjhgjjh fhgfh jhgjjfh hgjhghf",
-     imageURL:"/mobile3.jpg",
-     id:"67867",
-     category:"desktopApp",
-     largeImageURL:"/project2.png"
-}
-]
+    imageURL: "https://firebasestorage.googleapis.com/v0/b/fir-48ad5.appspot.com/o/project5.png?alt=media&token=30acd9f4-f664-4923-9432-5fb67c10a9be",
+    id: "5",
+    category: "website",
+    largeImageURL: "/project5.png",
+    siteURL:"https://3dportfolio-tau.vercel.app/"
+  },
+  {
+    name: "Chatify - Messaging App",
+    fullDescription: `Chatify is a cutting-edge messaging app designed with React Native and Express, offering users a seamless and versatile communication experience. Whether you're connecting with friends or colleagues, Chatify ensures a secure and user-friendly environment.
+    The app features a straightforward login/signup process, allowing users to personalize their experience. Building connections is effortless as users can add friends within the app, expanding their social network.
+    Chatify supports real-time text messaging powered by socket technology, enabling instant and fluid conversations. Take your communication further with crystal-clear voice calls and immersive video calls utilizing ZegoCloud for top-notch quality.
+    Sharing files is a breeze on Chatify, with support for various formats like PDFs, links, photos, and videos. The app's user-friendly interface ensures smooth navigation, making it easy for users to engage in dynamic and expressive conversations with emojis and GIFs.
+    Elevate your digital interactions with Chatify, the all-in-one messaging app that brings together convenience, security, and a host of features for a richer communication experience. Download Chatify now and redefine how you connect and communicate in the digital world.`,
+    shortDescription: "Chatify - Messaging App. Made with React Native,Express",
+    imageURL: "https://firebasestorage.googleapis.com/v0/b/fir-48ad5.appspot.com/o/project6.png?alt=media&token=f3072560-87dc-4b6d-a717-aa344ce13824",
+    id: "6",
+    category: "mobileApp",
+    largeImageURL: "/project6.png",
+  },
+  {
+    name: "Genius - SaaS Project With 5 AI Services",
+    fullDescription: `Discover the future of AI innovation with Genius,
+     a SaaS project that stands at the forefront of technological advancement.
+      Built on the robust combination of Next.js, Tailwind, and OpenAI, this platform
+       offers five powerful AI services: image generation, video generation, music generation,
+        conversation, and code generation. With a fully responsive design, 
+        Genius ensures a seamless experience across devices. Explore the limitless
+         potential of AI creativity and efficiency – welcome to the Genius revolution.`,
+    shortDescription: "Genius - SaaS Project With 5 AI Services. Made with Next,Tailwind,OpenAi",
+    imageURL: "https://firebasestorage.googleapis.com/v0/b/fir-48ad5.appspot.com/o/project7.png?alt=media&token=79e9e38a-3280-4de9-917c-76b8dc48d5c7",
+    id: "7",
+    category: "website",
+    largeImageURL: "/project7.png",
+    siteURL:"https://ai-saas-unnikrishnans-projects-17d1324a.vercel.app"
+  },
+  {
+    name: "Personal Portfolio Website",
+    fullDescription: `Welcome to my portfolio! I'm Unnikrishnan, a passionate developer, and this is where my projects come to life. Built with Next.js and Tailwind CSS, this space reflects my dedication to clean code and elegant design. Explore the diverse range of projects that showcase my skills and creativity. Welcome to the intersection of innovation and functionality.`,
+    shortDescription: "Portfolio Website . Made with Next,Tailwind etc.",
+    imageURL: "https://firebasestorage.googleapis.com/v0/b/fir-48ad5.appspot.com/o/project8.png?alt=media&token=9f0be76e-34f0-4408-9d7d-9003a2f0edca",
+    id: "8",
+    category: "website",
+    largeImageURL: "/project8.png",
+    siteURL:"https://www.unnikrishnan.xyz"
+  },
+];
 
-
-
-
-
-
-    
-
-
-export {projectData}
+export { projectData };

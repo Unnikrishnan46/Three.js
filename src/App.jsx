@@ -482,7 +482,6 @@ const App = () => {
   return (
     <div id='app'>
       <LoadingPage />
-      
       <div className="main-content" style={{ position: "absolute", color: "white", height: "100vh", width: "100%", zIndex: 50 }}>
         <div className="cursor"></div>
         <Navbar />

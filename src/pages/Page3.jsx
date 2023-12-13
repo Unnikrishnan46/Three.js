@@ -12,44 +12,14 @@ import "./Page3.css";
 
 
 function Page3() {
-  const [tab, setTab] = useState("website")
-  const [displayProjects, setDisplayProjects] = useState(null)
-  let website = [];
-  let mobile = [];
-  let desktop = []
-  useEffect(() => {
-    if (tab === "website") {
-      projectData.map((project, index) => {
-        if (project.category === "website") {
-          website.push(project)
-        }
-      })
-      setDisplayProjects(website)
-    }
-    if (tab === "mobileApp") {
-      projectData.map((project, index) => {
-        if (project.category === "mobileApp") {
-          mobile.push(project)
-        }
-      })
-      setDisplayProjects(mobile)
-    }
-    if (tab === "desktop") {
-      projectData.map((project, index) => {
-        if (project.category === "desktopApp") {
-          desktop.push(project)
-        }
-      })
-      setDisplayProjects(desktop)
-    }
-  }, [tab])
+  
   const settings = {
     infinite: true,
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
-    slidesToShow: tab === "website" ? 4 : 3,
+    slidesToShow:4,
     slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
@@ -79,17 +49,7 @@ function Page3() {
     ]
   };
 
-  const clickWebsite = () => {
-    setTab("website")
-  }
 
-  const clickMobileApp = () => {
-    setTab("mobileApp")
-  }
-
-  const clickDesktop = () => {
-    setTab("desktop")
-  }
 
   useLayoutEffect(() => {
     const page3 = document.getElementById('page3');
@@ -184,14 +144,14 @@ function Page3() {
       <div className="page3-heading">
         <h1>PORTFOLIO</h1>
       </div>
-      <div className="page3-subheadings">
+      {/* <div className="page3-subheadings">
         <h2 style={{ color: tab === "website" ? "red" : "white" }} onClick={clickWebsite}>Website</h2>
         <h2 style={{ color: tab === "mobileApp" ? "red" : "white" }} onClick={clickMobileApp}>Mobile App</h2>
         <h2 style={{ color: tab === "desktop" ? "red" : "white" }} onClick={clickDesktop}>Desktop</h2>
-      </div>
+      </div> */}
       <div className="project-container">
         <Slider {...settings}>
-          {displayProjects ? displayProjects.map((project, index) => (
+          {projectData ? projectData.map((project, index) => (
             <ProjectCard project={project} index={index} key={index} />
           )) : ""}
         </Slider>
