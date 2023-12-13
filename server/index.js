@@ -8,6 +8,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors())
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://3d-portfolio-server.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+
 
 const userEmail = 'erayamcode2004@gmail.com';
 const smtpConfig = {

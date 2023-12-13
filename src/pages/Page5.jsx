@@ -37,7 +37,7 @@ function Page5() {
 
     if (name && email && message  && isValidEmail(email)) {
       try {
-        await axios.post("http://localhost:5000/send-email", data).then((response) => {
+        await axios.post("https://3d-portfolio-server.vercel.app/send-email", data).then((response) => {
           if (response.status === 200) {
             setName('');
             setEmail('');
